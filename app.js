@@ -11,16 +11,22 @@ var express               = require("express"),
     Campground            = require("./models/campground"),
     User                  = require("./models/user"),
     Comment               = require("./models/comment"),
-    seedDB                = require("./seeds")
+    seedDB                = require("./seeds");
+
+var compression = require("compression");
+app.use(compression());    
  
 //requiring routes 
 var indexRoutes      = require("./routes/index")
     campgroundRoutes = require("./routes/campgrounds"),
-    commentRoutes    = require("./routes/comments"),
-        
+    commentRoutes    = require("./routes/comments");
+
+    
+         
 
 //seedDB();  //seed the database
-mongoose.connect("mongodb://localhost/yelp_camp_v11"); 
+//mongoose.connect("mongodb://localhost/yelp_camp_v11"); 
+mongoose.connect("mongodb+srv://AryanKarn:hellokaun@yelpcampapp-fc7wf.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true });
 app.use(express.static("public")); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
