@@ -12,7 +12,7 @@ router.get("/",function(req,res){
 });
 
 
-
+ 
 //AUTH ROUTES
 
 //show register form
